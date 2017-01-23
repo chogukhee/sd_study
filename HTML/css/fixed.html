@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style>
+   html,body,div{height:100%}
+   div{background-attachment: fixed; /*->모바일에서는 사용이 안됨*/
+   -webkit-background-size:cover;
+   background-size: cover;
+   background-position: center;
+   }
+   .a{background-image:url(../image/hot-chocolate.jpg);}
+   .b{background-image:url(../image/spread.jpg);}
+   .c{background-image:url(../image/woman.jpg);}
+   .d{background-image:url(../image/puppy.jpg);}
+  </style>
+</head>
+<body>
+    <div class="a"></div>
+    <div class="b"></div>
+    <div class="c" style="background-attachment:local;"></div>
+    <div class="d" style="background-image:url(../image/jellyfish.jpg);"></div>
+    <div class="a"></div>
+    <div class="b"></div>
+    <div class="c"></div>
+    <div class="d"></div>
+    <div class="a"></div>
+    <div class="b"></div>
+    <div class="c"></div>
+    <div class="d"></div>
+</body>
+</html>
