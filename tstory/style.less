@@ -1,0 +1,243 @@
+// out: style.css, sourcemap: false, compress: true
+@import url('https://fonts.googleapis.com/css?family=Yellowtail');
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+@color-white:#FFF;
+@color-black:#000;
+@color-font:#666;
+@color-sub:#30777F;
+@color-line:@color-sub;
+@color-main:#00B7CC;
+@color-master:#00727F;
+
+@layout-width:700px;
+
+//reset
+body{font-family: 'Kanit','Noto Sans KR', sans-serif;}
+body,html,h1,h2,h3,h4,h5,h6,ul,ol,dl,li,p{margin:0; padding:0;}
+ul,ol,li{list-style:none;}
+img{border:0; vertical-align: top;}
+input{vertical-align: middle;}
+a{
+  text-decoration: none;
+  color:@color-font;
+}
+
+//layout
+#header{
+  padding:20px 50px 50px;
+  outline:1px @color-master solid;
+  text-align: center;
+  background-color:@color-master;
+  h1{
+    font-size:25px;
+    font-weight: 300;
+    border-bottom:2px @color-white solid;
+    padding-bottom:5px;
+    display:inline-block;
+    text-transform:uppercase;
+    a{
+      color:@color-white;
+      span{
+        font-size:12px;
+        display:block;
+      }
+    }
+  }
+  .blogMenu{
+    font-size:0;
+    li{
+      font-size:14px;
+      margin:0 5px;
+      display: inline-block;
+      a{
+        color:@color-white;
+
+      }
+    }
+  }
+}
+#container{
+  width: 990px;
+  margin: 20px auto 0;
+
+  #content {
+    width:@layout-width;
+    float:left;
+    .entry {
+      .titleWrap {
+        margin-bottom: 30px;
+        h2 a{
+          font-size: 20px;
+          font-weight: 300;
+          border-bottom: 2px @color-main solid;
+        }
+        .date {
+          font-size:11px;
+          color:#AAA;
+        }
+      }
+      .tagTrail {
+        border: 1px @color-main solid;
+        border-radius: 3px;
+        margin : 35px 0 0;
+        padding: 8px 10px;
+        position: relative;
+        .tagText {
+          border-radius: 3px 3px 0 0;
+          margin-left: 20px;
+          position: absolute;
+          left: 0;
+          top: -20px;
+          height: 20px;
+          padding: 0 15px;
+          color: @color-white;
+          background-color: @color-main;
+          text-align: center;
+          font-size: 11px;
+        }
+        a {
+          font-size: 12px;
+          color: @color-white;
+          background-color: @color-sub;
+          padding: 0 10px;
+          border-radius: 3px;
+        }
+      }
+      .actionTrail {
+        margin: 20px 0;
+        a {
+          font-size:12px;
+          color:#AAA;
+        }
+      }
+      .comment {
+        margin-top: 30px;
+        .commentList {
+          margin-top:10px;
+          li {
+            margin: 10px 0;
+            overflow: hidden;
+            p {
+              margin-left: 64px;
+              // ovrtflow:hidden; 넣어줘도 무방
+              font-size:12px;
+            }
+          }
+          ul>li {
+            margin-left: 70px;
+          }
+          .image {
+            display: block;
+            width: 50px;
+            height: 50px;
+            border: 2px @color-sub solid;
+            border-radius: 3px;
+            overflow: hidden;
+            border-radius: 3px;
+            float:left;
+            margin-right: 10px;
+            img {
+              width: 100%;
+            }
+          }
+          .name {
+            font-size: 11px;
+            color:#AAA;
+          }
+          .date {
+            font-size: 11px;
+            color:@color-main;
+          }
+          .control {
+            float:right;
+            span {
+              background : @color-main;
+              color: @color-white;
+              padding: 0 5px;
+              border-radius: 2px;
+              font-size :12px;
+            }
+            span.rewrite {
+              background: @color-sub;
+            }
+          }
+        }
+        .commentWrite {
+          .textWrap {
+            border : 1px #AAA solid;
+            margin : 0 20px 10px;
+            border-radius: 3px;
+            text-align: center;
+            textarea{
+              width: 98%;
+              resize:none;
+              // 길이 넓이 조절가능한 버튼
+              border: 0 none;
+              vertical-align: top;
+              // input은 inline-block, 아래 여백제거
+            }
+          }
+          input[type="submit"] {
+            height: 30px;
+            line-height: 30px;
+            padding: 0 15px;
+            background-color: @color-sub;
+            color:@color-white;
+            border-radius: 3px;
+            text-align: center;
+            float: right;
+            border:0 none;
+          }
+          .secretWrap {
+            input[type="checkbox"] {
+              font-size:12px;
+            }
+          }
+        }
+      }
+      .paging {
+        text-align: center;
+        padding: 20px 0;
+        a {
+          border:1px #F00 solid;
+          paading: 0 5px;
+          border-radius: 3px;
+          font-size: 12px;
+          color:#AAA;
+        }
+      }
+    }
+  }
+  #sidebar {
+    margin-left: @layout-width+50px;
+    padding: 0 10px;
+    font-size:13px;
+    .blogImage {
+      position: relative;
+      width: 80px;
+      height: 28px;
+      margin:-30 auto;
+      img{
+        position: relative;
+        bottom: 60px;
+        right: 312px;
+        width: 100%;
+        border:3px @color-white solid;
+        border-radius: 50%;
+      }
+    }
+    .blogDesc {
+      font-size: 15px;
+      color:#666;
+      width: 131px;
+    }
+    .userID {
+      font-size: 13px;
+      color:#AAA;
+    }
+    .category {
+      margin-top:70px;
+    }
+  }
+}
