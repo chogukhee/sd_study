@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  .wrap {
+    max-width: 1100px;
+    margin:0 auto;
+    outline:1px #F00 solid;
+  }
+  .left {
+    width: 23.63636363636364%;
+    height:500px;
+    float:left;
+    outline:1px #F00 solid;
+  }
+  .content {
+    margin-left: 23.63636363636364%;
+    height: 500px;
+    outline:1px #F00 solid;
+  }
+  .left_wrap {
+    height: 400px;
+    margin-right:10px;
+    outline:1px #F00 solid;
+  }
+  ul {
+    list-style: none;
+    padding: 0; margin:0;
+  }
+  li {
+    width:25%;
+    float:left;
+    overflow:hidden;
+    position: relative;
+  }
+
+  li img {
+    width:100%;
+    vertical-align: top;
+    transition: 1s;
+  }
+  /*transition:1s cubic-bezier(0.98, 0.04, 0.28, 0.98);*/
+  /*ease 누르고 개발자도구에서 수정*/
+
+  li:hover img {
+    transform: scale(1.5);
+  }
+  li:after {
+    content:"";
+    position:absolute;
+    top:0;
+    bottom: 0;
+    left:0;
+    right:0;
+    background-color: rgba(0, 255, 0, 0.2);
+    opacity: 0;
+    transition: 1s;
+  }
+  li:hover:after{
+    opacity: 1;
+  }
+  li div {
+    margin:5px;
+  }
+  li .txt{
+    position:absolute;
+    left:0;
+    top:0;
+    z-index: 10;
+    color:#FFF;
+    font-size: 20px;
+    font-weight: 20px;
+    top:50%;
+    margin-top: -20px;
+    width: 100%;
+    text-align: center;
+  }
+
+  li .txt .와꾸 {
+    display: inline-block;
+    padding: 1px 5px;
+    position: relative;
+  }
+  li .txt .와꾸 .line {
+    width:20px;
+    height:2px;
+    background-color:#FFF;
+    position: relative;
+    display:block;
+    margin:-28px auto;
+    transition: 1s;
+  }
+
+  li .txt .와꾸 .line1 {
+    position: absolute;
+    height: 2px;
+    background-color: #FFF;
+    width: 0%;
+    top:0;
+    left:0;
+    transition:1s;
+    /*transition-delay: 1s;*/
+  }
+  li .txt .와꾸 .line2 {
+    position: absolute;
+    width: 2px;
+    background-color: #FFF;
+    height: 0%;
+    top:0;
+    right:0;
+    transition:0.5s;
+    transition-delay: 1s;
+  }
+  li .txt .와꾸 .line3 {
+    position: absolute;
+    height: 2px;
+    background-color: #FFF;
+    width: 0%;
+    bottom:0;
+    right:0;
+    transition:1s;
+    transition-delay: 1.5s;
+  }
+  li .txt .와꾸 .line4 {
+    position: absolute;
+    width: 2px;
+    background-color: #FFF;
+    height: 0%;
+    bottom:0;
+    left:0;
+    transition:0.5s;
+    transition-delay: 2.5s;
+  }
+
+
+  li:hover .와꾸 .line {
+    display:none;
+  }
+
+  li:hover .와꾸 .line1 {
+    width: 100%;
+  }
+  li:hover .와꾸 .line2 {
+    height: 100%;
+  }
+  li:hover .와꾸 .line3 {
+    width: 100%;
+  }
+  li:hover .와꾸 .line4 {
+    height: 100%;
+  }
+
+
+  @media screen and (max-width:480px) {
+    .grid li {
+      float:none;width:auto;
+    }
+  }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="left">
+      <div class="left_wrap"></div>
+    </div>
+
+    <div class="content">
+      <div class="grid">
+        <ul>
+          <li>
+            <img src="http://www.tkgroup.co.kr/kor/_Img/Main/about-01.jpg" alt=""/>
+            <span class="txt">
+              <span class="와꾸">
+                VISION
+                <span class="line"></span>
+                <span class="line1"></span>
+                <span class="line2"></span>
+                <span class="line3"></span>
+                <span class="line4"></span>
+              </span>
+            </span>
+          </li>
+          <li>
+            <img src="http://www.tkgroup.co.kr/kor/_Img/Main/about-02.jpg" alt=""/>
+            <span class="txt">
+              <span class="와꾸">
+                PORTFOLIO
+                <span class="line"></span>
+                <span class="line1"></span>
+                <span class="line2"></span>
+                <span class="line3"></span>
+                <span class="line4"></span>
+              </span>
+            </span>
+          </li>
+          <li>
+            <img src="http://www.tkgroup.co.kr/kor/_Img/Main/about-03.jpg" alt=""/>
+            <span class="txt">
+              <span class="와꾸">
+                RECRUIT
+                <span class="line"></span>
+                <span class="line1"></span>
+                <span class="line2"></span>
+                <span class="line3"></span>
+                <span class="line4"></span>
+              </span>
+            </span>
+          </li>
+          <li>
+            <img src="http://www.tkgroup.co.kr/kor/_Img/Main/about-01.jpg" alt=""/>
+            <span class="txt">
+              <span class="와꾸">
+                VISION
+                <span class="line"></span>
+                <span class="line1"></span>
+                <span class="line2"></span>
+                <span class="line3"></span>
+                <span class="line4"></span>
+              </span>
+            </span>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
