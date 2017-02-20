@@ -1,0 +1,64 @@
+// out: style.css, sourcemap: false, compress: true
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+/*reset*/
+body,html,h1,h2,h3,h4,h5,h6,ul,ol,dl,li,p{margin:0; padding:0;}
+body{font-family:'Oswald','Calibri','Malgun Gothic', sans-serif}
+ul,ol,dl,li{list-style:none;}
+img{vertical-align:top; border:0;}
+input,botton{vertical-align:middle;}
+a{text-decoration:none;}
+i {font-style:normal;}
+
+/*option*/
+@color-main:#008889;
+.fl{float:left;}
+.fr{float:right;}
+
+
+/*layout*/
+.header {
+  width:100%;
+  height:80px;
+  line-height: 80px;
+  background-color: #000;
+  position: relative;
+  z-index: 2000;
+  .logo {
+    background-image: url(logo.png);
+    background-repeat: no-repeat;
+    width: 62px;
+    height: 44px;
+    margin: 18px 30px;
+  }
+  .menu {
+    max-width: 1200px;
+    margin:0 auto;
+    li {
+      width: 170px;
+      height: 80px;
+      padding: 0 25px;
+      float:left;
+      text-align: center;
+      // 텍스트 가운데 정렬
+      border-bottom: 3px @color-main solid;
+      a{
+        color:#FFF;
+        font-size:16px;
+        line-height: 16px;
+        font-weight: bold;
+      }
+      a:hover {color:@color-main;}
+    }
+    .m4 {
+      padding: 0;
+      width:220px;
+    }
+  }
+  .site_option {
+    float: right;
+    border:1px #F00 solid;
+    width: 200px;
+    height: 50px;
+  }
+}
