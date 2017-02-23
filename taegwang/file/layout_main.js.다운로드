@@ -1,0 +1,197 @@
+
+/////////////////////////////////////////////////////
+
+
+
+
+
+//레이아웃 초기화(ready)
+function initPageLayout(){
+	initNavigation();
+	try{resizeVisImg();}catch(e){}
+	
+	resetImgZoom();
+	if(_thisPage.initAction!=undefined && _thisPage.initAction.length>0){		$(_thisPage.initAction).each(function(i,func){			try{func();}catch(e){ alert(e);}		});	}
+
+}
+//레이아웃 셋팅 (ready -> docLoding After , window.load 후에 실행)
+function setPageLayout(){
+	
+	try{resizeVisImg();}catch(e){}
+	if(_thisPage.initAction!=undefined && _thisPage.initAction.length>0){		$(_thisPage.initAction).each(function(i,func){			try{func();}catch(e){ alert(e);}		});	}
+	try{ thisPageResizeAction(); }catch(e){}
+}
+
+//레이아웃 리셋
+function resetPageLayout(){
+	mainNavi._reset();
+	try{resizeVisImg();}catch(e){}
+
+	resetImgZoom();
+	if(_thisPage.resizeAction!=undefined && _thisPage.resizeAction.length>0){		$(_thisPage.resizeAction).each(function(i,func){			try{func();}catch(e){ alert(e);}		});	}
+	try{ thisPageResizeAction(); }catch(e){}
+
+	if(wsize.win.w<=999){
+		 //alert('aa')
+		// $scrollify.destroy() // 섹션스크롤 막기
+	}
+
+}
+
+//레이아웃 높이 리셋
+function resizePageLayoutHeight(){
+
+}
+
+////////////////////////////////////////////////////
+//스크롤 완료후 레이아웃 변경
+function setScrollEndLayout(){
+
+	var scrTop = $(window).scrollTop();	
+
+	var chkH = $("#header-wrap").height();
+
+
+	if(_thisPage.scrollAction!=undefined && _thisPage.scrollAction.length>0){		$(_thisPage.scrollAction).each(function(i,func){			try{func();}catch(e){ alert(e);}		});	}
+
+}
+//스크롤 완료후 레이아웃 변경2 (Time delay 5000);
+function setScrollAfertLayout(){
+
+}
+
+////////////////////////////////////////////////////
+
+//윈도우 회전시 실행할 함수
+function setWindowRotation(){
+	if(typeof(thisPageRotation)=="function" && thisPageRotation!=undefined){  thisPageRotation(); }
+	else {
+		//기본 회전시 실행할 함수
+	}
+}
+
+//document.addEventListener('DOMContentLoaded', loaded, false);
+if('onorientationchange' in window){	window.addEventListener('onorientationchange', setWindowRotation, false);}
+
+////////////////////////////////////////////////////
+
+$(document).ready(function(){
+	console.log("1.ready");
+
+
+	try{initPageCssFiles();}catch(e){}
+	try{initPageJavascript();}catch(e){}
+
+	try{	getWindowSize();	}catch(e){ alert(e);}
+	try{	getPageSize();	}catch(e){}
+	
+	try{		setLowBrowser();	}catch(e){	}
+	
+	
+	try{		initPageLayout();	}catch(e){	}
+	try{		setMediaObjectFunc();	}catch(e){	}
+	
+	try{ _thisLayout_style = getPageStyle(); }catch(e){}
+
+	
+	docLoading(function(){
+		console.log("3.docLoad");
+	});
+
+
+});
+
+$(window).load(function(){
+	console.log("2.Load");
+	try{		initImgSizeInfo();	}catch(e){	}
+	setPageLayout();	
+});
+$(window).resize(function(e){
+	//var resizeTimeGap = (_isLowBr_)?  250 : 10;
+	var resizeTimeGap = 10;
+	if(_isLowBr_) resizeTimeGap=100;
+	clearTimeout(window.resizeEvt);
+	window.resizeEvt = setTimeout(function()
+	{
+		
+
+		//console.log("Resize" );
+		getWindowSize();getPageSize();
+		try{
+		if(old_wsize.win== undefined ||  wsize.win.w!=old_wsize.win.w){
+			resetPageLayout();
+		}else{
+			resizePageLayoutHeight();
+		}
+		}catch(e){
+			resetPageLayout();
+		}
+		
+
+		//레이어팝업 리사이징
+		try{ 		$(msgPopArr).each(function(k,pp){ 			pp._resize(); 		});		}catch(e){}
+
+
+	}, resizeTimeGap);
+
+});
+
+$(window).scroll(function(){
+	var scrTimeGap = 10;
+	if(_isLowBr_) scrTimeGap=200;
+	clearTimeout(window.scrollEvt);
+	
+	window.scrollEvt = setTimeout(function()
+	{
+		////srolling
+		try{ setScrollEndLayout();}catch(e){}
+		
+	}, scrTimeGap);
+	
+	clearTimeout(window.scrollAfterEvt);
+	window.scrollAfterEvt = setTimeout(function()
+	{
+		////srolling End After
+		try{ setScrollAfertLayout();}catch(e){}
+		
+	}, 5000);
+
+});
+
+////////////////////////////////////////////////////
+
+
+// 상단헤더 고정
+var cc ;
+var hh ;
+var vis;
+var wd;
+$(window).scroll(function () {
+	
+	
+	var wd = $('#doc').width();
+	var hh = $('#header').height();
+	var ee = $('.subtop-wr').height();
+	var cc = hh + ee;
+	
+	clearTimeout(window.scrollAfterEvt5);
+	window.scrollAfterEvt5 = setTimeout(function()
+		{
+			   if ($(window).scrollTop() > cc && wd > 1000) {
+				 $('.header-wrap-abs').css({'position':'fixed'});
+			} else {
+				$('.header-wrap-abs').css({'position':'fixed','top':'0'},0);
+			} 
+			if( wd < 1000){
+				 $('.header-wrap-abs').css({'position':'absolute','left':'0','top':'0','width':'100%','margin-left':'0'});
+			}
+
+		if( $(window).scrollTop() > 1100){
+		 $('.top-btn').animate({'right':'0'},200)
+		}else{
+			 $('.top-btn').animate({'right':'-60'},200)
+		}
+	}, 100);
+
+});
+

@@ -6,7 +6,7 @@ body,html,h1,h2,h3,h4,h5,h6,ul,ol,dl,li,p{margin:0; padding:0;}
 body{font-family:'Oswald','Calibri','Malgun Gothic', sans-serif}
 ul,ol,dl,li{list-style:none;}
 img{vertical-align:top; border:0;}
-input,botton{vertical-align:middle;}
+input,button{vertical-align:middle;}
 a{text-decoration:none;}
 i {font-style:normal;}
 
@@ -25,7 +25,7 @@ i {font-style:normal;}
   position: relative;
   z-index: 2000;
   .logo {
-    background-image: url(logo.png);
+    background-image: url(file/logo.png);
     background-repeat: no-repeat;
     width: 62px;
     height: 44px;
@@ -49,6 +49,7 @@ i {font-style:normal;}
         font-weight: bold;
       }
       a:hover {color:@color-main;}
+      li:hover {display: block;}
     }
     .m4 {
       padding: 0;
@@ -61,4 +62,86 @@ i {font-style:normal;}
     width: 200px;
     height: 50px;
   }
+}
+.content {
+  .video_content {
+    background-image: url(file/m_mvis01.jpg);
+    width: 2000px;
+    height: 825px;
+    margin:0 auto;
+    position: relative;
+    .video_logo {
+      width: 469px;
+      height: 142px;
+      position: relative;
+      left:1000px-469/2px;
+      top:825/2px-142/2px;
+      z-index: 2000;
+      background-image: url(file/m-slogan.png);
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+  }
+  .main_content {
+    width: 100%;
+    ul {
+      position:absolute;
+      list-style: none;
+      padding: 0; margin:0;
+      li {
+        width: 33.333333%;
+        float:left;
+        overflow:hidden;
+        position:relative;
+        .txt {
+          font-size:15px;
+          font-weight:15px;
+          color:#FFF;
+          z-index: 1000;
+          text-align: center;
+          position:relative;
+          top:50%;
+
+        }
+        img {
+          width: 100%;
+          transition: 1s;
+        }
+      }
+      li:hover img {
+        transform: scale(1.2);
+      }
+      li:after {
+        content:"";
+        position:absolute;
+        top:0;
+        left:0;
+        bottom:0;
+        right:0;
+        background-color: rgba(0,131,132,0.5);
+        opacity: 0;
+        transition: 1s;
+      }
+      li:hover:after {
+        opacity: 1;
+      }
+    }
+    .line {
+
+    }
+    .line
+
+  }
+  .c_content {
+
+  }
+  .d_content {
+
+  }
+  .e_content {
+
+  }
+}
+.footer {
+
 }
